@@ -7,9 +7,16 @@ export const TaskList = () => {
 
   const defaultTask = new Task('Example', 'Default Description', false, LEVELS.NORMAL)
   const [task, setTask] = useState(defaultTask);
+  const [loading, setLoading] = useState(true);
+
+
+  const changeCompleted = (id) => {
+
+  }
 
   useEffect(()=> {
     console.log("modificed")
+    setLoading(false)
       return () => {
         console.log("died")
       }
@@ -18,7 +25,7 @@ export const TaskList = () => {
   return (
     <div>
       <div>
-        <h1>Yor task: </h1>  
+        <h1>Your Tasks: </h1>  
       </div>
       <TaskComponent task={ defaultTask } />
     </div>
