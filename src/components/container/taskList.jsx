@@ -10,13 +10,35 @@ export const TaskList = () => {
   const defaultTask2 = new Task('Example2', 'Description2', false, LEVELS.URGENT);
   const defaultTask3 = new Task('Example3', 'Description3', false, LEVELS.BLOCKING);
 
-  const [task, setTask] = useState([defaultTask1, defaultTask2, defaultTask3]);
+  const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
   const [loading, setLoading] = useState(true);
 
 
-  const changeCompleted = (id) => {
-
+  function completedTask(task) {
+    console.log("complete task", task)
+    const index = tasks.indexOf(task);
+    const tempTask = [...tasks];
+    tempTask[index].completed = !tempTask[index].completed;
+    setTasks(tempTask)
   }
+
+  function removeTask(task){
+    console.log("remove task", task)
+    const index = tasks.indexOf(task);
+    const tempTask = [...tasks];
+    tempTask.splice(index,1);
+    setTasks(tempTask)
+  }
+
+  function addTask(task){
+    console.log("add task", task)
+    const index = tasks.indexOf(task);
+    const tempTask = [...tasks];
+    tempTask.push(task);
+    setTasks(tempTask);
+  }
+
+
 
   useEffect(()=> {
     console.log("modificed")
@@ -24,7 +46,7 @@ export const TaskList = () => {
       return () => {
         console.log("died")
       }
-  }, [task]);
+  }, [tasks]);
 
   return (
     <div>
@@ -44,20 +66,22 @@ export const TaskList = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {task?.map((task, index) => {
+                {tasks?.map((task, index) => {
                   return (
                   <TaskComponent 
                     key={index} 
-                    task={ task } 
+                    tasks={ task } 
+                    complete={ completedTask }
+                    remove={ removeTask }
                     />
                   )
                 })}
                 </tbody>
               </table>
             </div>
-            <TaskForm/>
         </div>
       </div>
+            <TaskForm add={addTask}/>
     </div>
   )
 }
