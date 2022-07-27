@@ -1,19 +1,19 @@
-import React, {useState} from 'react'
+// import React, {useState} from 'react'
 
-export const RegisterForm = () => {
+// export const RegisterForm = () => {
 
-  const initialData = [
-    {
-      user: '',
-      name: '',
-      email: '',
-      password: ''
-    }
-  ]
+//   const initialData = [
+//     {
+//       user: '',
+//       name: '',
+//       email: '',
+//       password: ''
+//     }
+//   ]
 
-  const [data, setData] = useState(initialData);
+//   const [data, setData] = useState(initialData);
 
-  return (
-    <div>R</div>
-  )
-}
+//   return (
+//     <div>R</div>
+//   )
+// }

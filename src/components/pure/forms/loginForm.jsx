@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
-export const LoginForm = () => {
+// export const LoginForm = () => {
 
-  const initialData = [
-    {
-      user: '',
-      password: ''
-    }
-  ]
+//   const initialData = [
+//     {
+//       user: '',
+//       password: ''
+//     }
+//   ]
 
-  const [data, setData] = useState(initialData);
+//   const [data, setData] = useState(initialData);
 
-  return (
-    <div>L</div>
-  )
-}
+//   return (
+//     <div>L</div>
+//   )
+// }

@@ -1,12 +1,12 @@
 import './App.css';
-import { TaskList } from './components/container/taskList';
+import { TaskList } from './components/container/TaskList';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header"> */}
         <TaskList/>
-      </header>
+      {/* </header> */}
     </div>
   );
 }
