@@ -1,5 +1,6 @@
 import './App.css';
 import { TaskList } from './components/container/TaskList';
+import LoginFormik from './components/pure/forms/LoginFormik';
 
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
       {/* <header className="App-header"> */}
         <TaskList/>
       {/* </header> */}
+      
+      <LoginFormik/>
     </div>
   );
 }
