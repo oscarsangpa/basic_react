@@ -31,11 +31,49 @@ export const TaskList = () => {
   }
 
   function addTask(task){
-    console.log("add task", task)
-    const index = tasks.indexOf(task);
     const tempTask = [...tasks];
     tempTask.push(task);
     setTasks(tempTask);
+  }
+
+  const Table = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th scope="col"> Title </th>
+            <th scope="col"> Description </th>
+            <th scope="col"> Priority </th>
+            <th scope="col"> Actions </th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks?.map((task, index) => {
+            return (
+              <TaskComponent
+                key={index}
+                tasks={task}
+                complete={completedTask}
+                remove={removeTask}
+              />
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
+
+  let taskTable;
+
+  if(tasks.length > 0 ) {
+    taskTable = <Table/>
+  } else {
+    taskTable = (
+      <div>
+        <h3>There are not task show </h3>
+        <h4>Please, create one </h4>
+      </div>
+    )
   }
 
 
@@ -56,32 +94,11 @@ export const TaskList = () => {
             <h5> Your Tasks: </h5>
           </div>
             <div className='card-body' data-mdb-perfect-scrollbar="true" style={{position: "relative", height: "400px"}}>
-              <table>
-                <thead>
-                <tr>
-                  <th scope='col'> Title </th>
-                  <th scope='col'> Description </th>
-                  <th scope='col'> Priority </th>
-                  <th scope='col'> Actions </th>
-                </tr>
-                </thead>
-                <tbody>
-                {tasks?.map((task, index) => {
-                  return (
-                  <TaskComponent 
-                    key={index} 
-                    tasks={ task } 
-                    complete={ completedTask }
-                    remove={ removeTask }
-                    />
-                  )
-                })}
-                </tbody>
-              </table>
+              {taskTable}
             </div>
         </div>
       </div>
-            <TaskForm add={addTask}/>
+            <TaskForm add={addTask} length={tasks.length}/>
     </div>
   )
 }
