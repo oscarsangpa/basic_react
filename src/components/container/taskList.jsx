@@ -13,6 +13,16 @@ export const TaskList = () => {
   const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
   const [loading, setLoading] = useState(true);
 
+  useEffect(()=> {
+    console.log("modificed")
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+      return () => {
+        console.log("died")
+      }
+  }, [tasks]);
+
 
   function completedTask(task) {
     console.log("complete task", task)
@@ -76,15 +86,12 @@ export const TaskList = () => {
     )
   }
 
+  const loadingStyle = {
+    color: "grey",
+    fontSize: "30px",
+    fontWeight: "bold"
+  }
 
-
-  useEffect(()=> {
-    console.log("modificed")
-    setLoading(false)
-      return () => {
-        console.log("died")
-      }
-  }, [tasks]);
 
   return (
     <div>
@@ -94,7 +101,7 @@ export const TaskList = () => {
             <h5> Your Tasks: </h5>
           </div>
             <div className='card-body' data-mdb-perfect-scrollbar="true" style={{position: "relative", height: "400px"}}>
-              {taskTable}
+              {loading ? (<p style={loadingStyle}>Loading tasks...</p>) : taskTable}
             </div>
         </div>
       </div>
