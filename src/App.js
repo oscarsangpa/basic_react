@@ -1,7 +1,8 @@
 import './App.css';
 import { TaskList } from './components/container/TaskList';
-import LoginFormik from './components/pure/forms/LoginFormik';
-import RegisterFormik from './components/pure/forms/RegisterFormik';
+import DashBoard from './pages/dashboard/DashBoard';
+// import LoginFormik from './components/pure/forms/LoginFormik';
+// import RegisterFormik from './components/pure/forms/RegisterFormik';
 
 function App() {
   return (
@@ -10,8 +11,10 @@ function App() {
         <TaskList/>
       {/* </header> */}
       
-      <RegisterFormik/>
+      {/* <RegisterFormik/> */}
       {/* <LoginFormik/> */}
+
+      <DashBoard/>
 
     </div>
   );
