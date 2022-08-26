@@ -9,7 +9,7 @@ import HomePage from './pages/home/HomePage';
 
 function AppFinal() {
 
-  let loggedIn = true;
+  let loggedIn = true; //change value from sesionStorage
 
   return (
     <BrowserRouter>
@@ -20,8 +20,8 @@ function AppFinal() {
             <Navigate from="/" to="/dashboard"/>
             : <Navigate from="/" to="/login"/>
           } />
-        <Route path="/" element={ <HomePage/> } />dPage/> 
-        <Route path="/dashboard" element={ loggedIn ? <Navigate to="/login"/> : <Navigate to="/dashboard"/> } />
+        <Route path="/" element={ <HomePage/> } /> 
+        <Route path="/dashboard" element={ loggedIn ? <DashBoardPage/> : <Navigate to="/dashboard"/> } />
         <Route path="/login" element={ <LoginFormik/> } />
         <Route path="*" element={ <NotFoundPage/> } />
 
