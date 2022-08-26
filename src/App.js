@@ -1,6 +1,6 @@
 import './App.css';
 import { TaskList } from './components/container/TaskList';
-import DashBoard from './pages/dashboard/DashBoard';
+import DashBoardPage from './pages/dashboard/DashBoardPage';
 // import LoginFormik from './components/pure/forms/LoginFormik';
 // import RegisterFormik from './components/pure/forms/RegisterFormik';
 
@@ -14,7 +14,7 @@ function App() {
       {/* <RegisterFormik/> */}
       {/* <LoginFormik/> */}
 
-      <DashBoard/>
+      {/* <DashBoard/> */}
 
     </div>
   );
